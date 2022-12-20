@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import Livros
+from .models import Livro
 from .forms import LivroForm
 # Create your views here.
 
 def home(request):
-    livros = Livros.objects.all()
-    return render(request, 'home.html')
+    livro = Livro.objects.all()
+    return render(request, 'home.html', {'livro': livro})
 
 def cadastrar_livro(request):
-    form = LivroForm
-    return render(request, 'fazer_emprestimo.html', {"form": form})
+    form = LivroForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'cadastrar_livro.html', context=context)
