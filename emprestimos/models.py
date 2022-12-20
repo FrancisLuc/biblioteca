@@ -12,3 +12,12 @@ class Livro(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Emprestimos(models.Model):
+    codigo = models.BigIntegerField('Codigo')
+    usuario = models.CharField('Usuario', max_length=50)
+    data_de_emprestimo = models.DateField('Data de Emprestimo')
+    livro = models.CharField('Livro', max_length=50)
+
+    def __str__(self):
+        return self.codigo
