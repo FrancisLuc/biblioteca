@@ -4,8 +4,8 @@ from .forms import LivroForm, EmprestimoForm
 # Create your views here.
 
 def home(request):
-    livro = Livro.objects.all()
-    return render(request, 'home.html', {'livro': livro})
+    livros = Livro.objects.all()
+    return render(request, 'home.html', {'livros': livros})
 
 def cadastrar_livro(request):
     form = LivroForm()
