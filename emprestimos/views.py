@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Livro
+from .models import Livro, Emprestimos
 from .forms import LivroForm, EmprestimoForm
 # Create your views here.
 
 def home(request):
     livros = Livro.objects.all()
-    return render(request, 'home.html', {'livros': livros})
+    context = {"livros": livros}
+    return render(request, 'home.html', context)
 
 def cadastrar_livro(request):
     if request.method == 'POST':
@@ -26,3 +27,13 @@ def fazer_emprestimo(request):
         'form': form
     }
     return render(request, 'fazer_emprestimo.html', context=context)
+
+def listar_livros(request):
+    livros = Livro.objects.all()
+    context = {"livros": livros}
+    return render(request, 'listar_livros.html', context)
+
+def historico_de_emprestimos(request):
+    emprestimos = Emprestimos.objects.all()
+    context = {"emprestimos": emprestimos}
+    return render(request, 'historico_de_emprestimos.html', context)
