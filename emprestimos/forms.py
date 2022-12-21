@@ -1,12 +1,13 @@
 from django.forms import ModelForm
 from .models import Livro, Emprestimos
+from django import forms
 
-class LivroForm(ModelForm):
+class LivroForm(forms.ModelForm):
     class Meta:
         model = Livro
         fields = "__all__"
 
-class EmprestimoForm(ModelForm):
-    class meta:
+class EmprestimoForm(forms.ModelForm):
+    class Meta:
         model = Emprestimos
         fields = "__all__"

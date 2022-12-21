@@ -6,14 +6,15 @@
 </head>
 <body>
     <h1><b>BibliotecaTeca</b></h1>
+    <a href="{% url 'home' %}">Home</a>
     <hr>
     <br>
     <h2><b>Cadastrar Livro</b></h2>
     <hr>
     <br>
-    <form action="." mothod="POST">
+    <form mothod="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Salvar</button>
+        <button type="submit" action="home/" >Salvar</button>
 </body>
 </html>
