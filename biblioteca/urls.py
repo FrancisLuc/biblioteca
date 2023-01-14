@@ -19,7 +19,7 @@ from emprestimos.views import home, cadastrar_livro, fazer_emprestimo, listar_li
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home, name="home"),
+    path('', home, name="home"),
     path('cadastrar_livro/', cadastrar_livro, name="cadastrar_livro"),
     path('fazer_emprestimo/', fazer_emprestimo, name="fazer_emprestimo"),
     path('listar_livros/', listar_livros, name="listar_livros"),

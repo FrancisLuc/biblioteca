@@ -12,6 +12,9 @@
     <h2><b>Historico de Emprestimos</b></h2>
     <hr>
     <br>
-    {{ emprestimos }}
+    <ul>
+        {% for emprestimo in emprestimos %}
+        <li>{{ emprestimo.livro }}</li>
+        {% endfor %}
 </body>
 </html>

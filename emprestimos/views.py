@@ -13,7 +13,7 @@ def cadastrar_livro(request):
         form = LivroForm(request.POST)
         if form.is_valid():
             livro = form.save()
-            return redirect('home/')
+            return redirect('/')
     else:
         form = LivroForm()
         context = {
@@ -22,11 +22,17 @@ def cadastrar_livro(request):
         return render(request, 'cadastrar_livro.html', context=context)
 
 def fazer_emprestimo(request):
-    form = EmprestimoForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'fazer_emprestimo.html', context=context)
+    if request.method == 'POST':
+        form = EmprestimoForm(request.POST)
+        if form.is_valid():
+            emprestimo = form.save()
+            return redirect('/')
+    else:
+        form = EmprestimoForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'fazer_emprestimo.html', context=context)
 
 def listar_livros(request):
     livros = Livro.objects.all()
@@ -36,4 +42,4 @@ def listar_livros(request):
 def historico_de_emprestimos(request):
     emprestimos = Emprestimos.objects.all()
     context = {"emprestimos": emprestimos}
-    return render(request, 'historico_de_emprestimos.html', context)
+    return render(request, 'historico_de_emprestimos.html', context=context)

@@ -21,6 +21,10 @@
     <br>
     <h2><b>Nossos Livros</b></h2>
     <br>
-    {{ livros }}
+    <ul>
+    {% for livro in livros %}
+    <li>{{ livro.titulo }}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>

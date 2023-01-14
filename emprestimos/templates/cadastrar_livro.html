@@ -12,10 +12,10 @@
     <h2><b>Cadastrar Livro</b></h2>
     <hr>
     <br>
-    <form mothod="POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" action="home/" >Salvar</button>
+        <button type="submit" action="home/">Salvar</button>
     </form>
 </body>
 </html>

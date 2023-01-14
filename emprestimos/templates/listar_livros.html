@@ -12,6 +12,10 @@
     <h2><b>Lista de Livros</b></h2>
     <hr>
     <br>
-    {{ livros }}
+    <ul>
+        {% for livro in livros %}
+        <li>{{ livro.titulo }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
