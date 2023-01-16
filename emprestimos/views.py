@@ -44,6 +44,6 @@ def historico_de_emprestimos(request):
     context = {"emprestimos": emprestimos}
     return render(request, 'historico_de_emprestimos.html', context=context)
 
-def detalhar_livro(request):
+def detalhar_livro(request, id):
     livro = Livro.object.get(id=id)
     return render(request, 'detalhar_livro.html', {'Livro': livro})

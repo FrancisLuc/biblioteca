@@ -2,18 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Biblioteca - detalhar_livro</title>
+    <title>Biblioteca - {{ livro.titulo }}</title>
 </head>
 <body>
     <h1><b>BibliotecaTeca</b></h1>
     <a href="{% url 'home' %}">Home</a>
     <hr>
     <br>
-    <h2><b>detalhar_livro</b></h2>
-    <hr>
-    <br>
-    <ul class="list-group">
-        {% for livro in livro.%}
-    </ul>
+    <h2>{{ livro.titulo }}</h2>
+    <h3>{{ livro.descricao }}</h3>
 </body>
 </html>

@@ -23,7 +23,7 @@
     <br>
     <ul>
     {% for livro in livros %}
-    <li>{{ livro.titulo }}</li>
+        <li><a href="{% url 'detalhar_livro' livro.id %}">{{ livro.titulo }}</a></li>
     {% endfor %}
     </ul>
 </body>
