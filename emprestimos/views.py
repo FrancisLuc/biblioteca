@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Livro, Emprestimos
 from .forms import LivroForm, EmprestimoForm
 # Create your views here.
@@ -49,6 +49,11 @@ def detalhar_livro(request, id):
     return render(request, 'detalhar_livro.html', {'livro': livro})
 
 def deletar_livro(request, id):
-    livro = get_list_or_404(Livro, pk=id)
+    livro = get_object_or_404(Livro, pk=id)
     livro.delete()
-    return redirect(request, '/')
+    return redirect('/')
+
+def atualizar_livro(request, id):
+    livro = get_object_or_404(Livro, pk=id)
+    form = LivroForm(instance=livro)
+    if request.method == "POST":

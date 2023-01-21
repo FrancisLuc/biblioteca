@@ -9,10 +9,15 @@
     <a href="{% url 'home' %}">Home</a>
     <hr>
     <br>
-    <ul>
-        <li><h2>{{ livro.titulo }}</h2></li>
-        <li><h4>{{ livro.descricao }}</h4></li>
-    </ul>
+
+        <h2>{{ livro.titulo }}</h2>
+        <h4>{{ livro.autor }}</h4>
+        <h3>Sinopse</h3>
+        <h4>{{ livro.descricao }}</h4>
+        <h4>{{ livro.editora }}</h4>
+        <h4>Estão disponiveis {{ livro.quantidade }} unidades.</h4>
+
     <a href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
+    <a href="{% url 'atualizar_livro' livro.id %}">ATUALIZAR</a>
 </body>
 </html>
