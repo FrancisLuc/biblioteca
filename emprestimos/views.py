@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404
 from .models import Livro, Emprestimos
 from .forms import LivroForm, EmprestimoForm
 # Create your views here.
@@ -45,5 +45,10 @@ def historico_de_emprestimos(request):
     return render(request, 'historico_de_emprestimos.html', context=context)
 
 def detalhar_livro(request, id):
-    livro = Livro.object.get(id=id)
-    return render(request, 'detalhar_livro.html', {'Livro': livro})
+    livro = Livro.objects.get(id=id)
+    return render(request, 'detalhar_livro.html', {'livro': livro})
+
+def deletar_livro(request, id):
+    livro = get_list_or_404(Livro, pk=id)
+    livro.delete()
+    return redirect(request, '/')

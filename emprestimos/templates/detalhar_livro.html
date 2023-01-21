@@ -9,7 +9,10 @@
     <a href="{% url 'home' %}">Home</a>
     <hr>
     <br>
-    <h2>{{ livro.titulo }}</h2>
-    <h3>{{ livro.descricao }}</h3>
+    <ul>
+        <li><h2>{{ livro.titulo }}</h2></li>
+        <li><h4>{{ livro.descricao }}</h4></li>
+    </ul>
+    <a href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
 </body>
 </html>

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from emprestimos.views import home, cadastrar_livro, fazer_emprestimo, listar_livros, historico_de_emprestimos, detalhar_livro
+from emprestimos.views import home, cadastrar_livro, fazer_emprestimo, listar_livros, historico_de_emprestimos, detalhar_livro, deletar_livro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('listar_livros/', listar_livros, name="listar_livros"),
     path('historico_de_emprestimos/', historico_de_emprestimos, name="historico_de_emprestimos"),
     path('detalhar_livro/<int:id>/', detalhar_livro, name="detalhar_livro"),
+    path('deletar_livro/<int:id>/', deletar_livro, name="deletar_livro")
 ]

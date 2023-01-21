@@ -12,9 +12,12 @@
     <h2><b>Historico de Emprestimos</b></h2>
     <hr>
     <br>
-    <ul>
         {% for emprestimo in emprestimos %}
-        <li>{{ emprestimo.livro }}</li>
+        <b>Livro:</b> {{ emprestimo.livro }}<br>
+        <b>Data:</b> {{ emprestimo.data_de_emprestimo }}<br>
+        <b>Codigo:</b> {{ emprestimo.codigo }}<br>
+        <hr>
+        <br>
         {% endfor %}
 </body>
 </html>
