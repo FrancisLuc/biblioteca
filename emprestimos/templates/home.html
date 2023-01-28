@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Biblioteca - Emprestimos</title>
-</head>
-<body>
-    <h1><b>BibliotecaTeca</b></h1>
-    <hr>
-    <br>
-    <ul>
-        <li><a href="{% url 'fazer_emprestimo'%}">Fazer Emprestimo</a></li>
-        <li><a href="{% url 'cadastrar_livro'%}">Cadastrar Livro</a></li>
-        <li><a href="{% url 'listar_livros'%}">Lista de Livros</a></li>
-        <li><a href="{% url 'historico_de_emprestimos'%}">Historico de Emprestimos</a></li>
-    </ul>
-    <hr>
-    <br>
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class= 'mt-5 list-group'>
+        <ul>
+            <li class="list-group-item" ><a href="{% url 'cadastrar_livro'%}">Cadastrar Livro</a></li>
+            <li class="list-group-item" ><a href="{% url 'listar_livros'%}">Lista de Livros</a></li>
+            <li class="list-group-item" ><a href="{% url 'historico_de_emprestimos'%}">Lista de Emprestimos</a></li>
+        </ul>
+    </div>
+
     <h2><b>Nossos Livros</b></h2>
     <br>
-    <ul>
-    {% for livro in livros %}
-        <li><a href="{% url 'detalhar_livro' livro.id %}">{{ livro.titulo }}</a></li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
+    <div class= 'list-group'>
+        <ul>
+        {% for livro in livros %}
+            <li class="list-group-item" ><a href="{% url 'detalhar_livro' livro.id %}">{{ livro.titulo }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

@@ -16,6 +16,7 @@
         <b>Livro:</b> {{ emprestimo.livro }}<br>
         <b>Data:</b> {{ emprestimo.data_de_emprestimo }}<br>
         <b>Codigo:</b> {{ emprestimo.codigo }}<br>
+        <a href="{% url 'devolver_livro' emprestimo.id %}">DEVOLVER</a>
         <hr>
         <br>
         {% endfor %}

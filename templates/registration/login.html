@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <h1><b>BibliotecaTeca</b></h1>
+    <a href="{% url 'home' %}">Home</a>
+    <hr>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" action="home/">Cadastrar</button>
+    </form>
+</body>
+</html>

@@ -2,14 +2,16 @@
 {% block content %}
 
 <body>
-    <div  class="w-50 mx-auto mt-5">
-    <h2><b>Cadastrar Livro</b></h2>
+    <div class="mt-5">
+    <h2><b>Atualizar Livro</b></h2>
     <hr>
     <br>
+    </div>
+    <div class="w-50 mx-auto">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-primary mt-1 type="submit" action="home/">Salvar</button>
+        <button class="btn btn-primary mt-1" type="submit" action="home/">Salvar</button>
     </form>
     </div>
 {% endblock content %}

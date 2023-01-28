@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Biblioteca - {{ livro.titulo }}</title>
-</head>
-<body>
-    <h1><b>BibliotecaTeca</b></h1>
-    <a href="{% url 'home' %}">Home</a>
-    <hr>
-    <br>
+{% extends 'base.html' %}
+{% block content %}
 
+<body>
+    <div class='mt-5'>
         <h2>{{ livro.titulo }}</h2>
         <h4>{{ livro.autor }}</h4>
-        <h3>Sinopse</h3>
+        <h3>Sinopse:</h3>
         <h4>{{ livro.descricao }}</h4>
         <h4>{{ livro.editora }}</h4>
         <h4>Estão disponiveis {{ livro.quantidade }} unidades.</h4>
 
-    <a href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
-    <a href="{% url 'atualizar_livro' livro.id %}">ATUALIZAR</a>
-</body>
-</html>
+    <a class="btn btn-primary mt-1" href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
+    <a class="btn btn-primary mt-1" href="{% url 'atualizar_livro' livro.id %}">ATUALIZAR</a>
+    <a class="btn btn-primary mt-1" href="{% url 'emprestar_livro' livro.id %}">PEDIR</a>
+    </div>
+{% endblock content %}
