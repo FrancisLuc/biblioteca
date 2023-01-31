@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Biblioteca - Lista de Livros</title>
-</head>
+{% extends 'base.html' %}
+{% block content %}
 <body>
-    <h1><b>BibliotecaTeca</b></h1>
-    <a href="{% url 'home' %}">Home</a>
-    <hr>
-    <br>
-    <h2><b>Historico de Emprestimos</b></h2>
-    <hr>
-    <br>
+    <div class="mt-5">
+        <h2><b>Historico de Emprestimos</b></h2>
+    </div>
+    </div class="list-group">
         {% for emprestimo in emprestimos %}
         <b>Livro:</b> {{ emprestimo.livro }}<br>
         <b>Data:</b> {{ emprestimo.data_de_emprestimo }}<br>
         <b>Codigo:</b> {{ emprestimo.codigo }}<br>
-        <a href="{% url 'devolver_livro' emprestimo.id %}">DEVOLVER</a>
+        <a class="btn btn-primary mt-2" href="{% url 'devolver_livro' emprestimo.id %}">DEVOLVER</a>
         <hr>
         <br>
         {% endfor %}
+    </div>
+    
 </body>
-</html>
+{% endblock content %}

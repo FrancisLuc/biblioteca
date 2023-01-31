@@ -3,16 +3,16 @@
 
 <body>
     <div class="mt-5">
-    <h2><b>Lista de Livros</b></h2>
-    <hr>
-    <br>
-    <div class>
-    <ul>
-        {% for livro in livros %}
-        <li><a href="{% url 'detalhar_livro' livro.id %}">{{ livro.titulo }}</a></li>
-        <button type="submit">Pedir</button>
-        {% endfor %}
-    </ul>
+        <h2><b>Lista de Livros</b></h2>
+        <hr>
+        <br>
     </div>
+    <div class="list-group">
+        <ul>
+            {% for livro in livros %}
+            <li><a href="{% url 'detalhar_livro' livro.id %}">{{ livro.titulo }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
-    {% endblock content %}
+</body>
+{% endblock content %}

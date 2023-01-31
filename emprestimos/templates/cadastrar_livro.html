@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 {% block content %}
-
 <body>
     <div  class="w-50 mx-auto mt-5">
     <h2><b>Cadastrar Livro</b></h2>
@@ -8,8 +8,11 @@
     <br>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-primary mt-1 type="submit" action="home/">Salvar</button>
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button class="btn btn-primary mt-1" type="submit" action="/">Salvar</button>
+        {% endbuttons %}
     </form>
     </div>
+</body>
 {% endblock content %}

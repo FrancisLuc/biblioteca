@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 {% block content %}
 
 <body>
     <div class="mt-5">
-    <h2><b>Atualizar Livro</b></h2>
-    <hr>
-    <br>
+        <h2><b>Atualizar Livro</b></h2>
+        <hr>
+        <br>
     </div>
     <div class="w-50 mx-auto">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-primary mt-1" type="submit" action="home/">Salvar</button>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button class="btn btn-primary mt-1" type="submit" action="home/">Salvar</button>
+            {% endbuttons %}
+        </form>
     </div>
 {% endblock content %}

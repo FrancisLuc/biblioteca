@@ -10,8 +10,8 @@
         <h4>{{ livro.editora }}</h4>
         <h4>Estão disponiveis {{ livro.quantidade }} unidades.</h4>
 
-    <a class="btn btn-primary mt-1" href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
-    <a class="btn btn-primary mt-1" href="{% url 'atualizar_livro' livro.id %}">ATUALIZAR</a>
-    <a class="btn btn-primary mt-1" href="{% url 'emprestar_livro' livro.id %}">PEDIR</a>
+        <a class="btn btn-primary mt-1" href="{% url 'deletar_livro' livro.id %}">DELETAR</a>
+        <a class="btn btn-primary mt-1" href="{% url 'atualizar_livro' livro.id %}">ATUALIZAR</a>
+        <a class="btn btn-primary mt-1" href="{% url 'emprestar_livro' livro.id %}">PEDIR</a>
     </div>
 {% endblock content %}
