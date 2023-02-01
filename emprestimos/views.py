@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Livro, Emprestimos
 from .forms import LivroForm, EmprestimoForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 from django.db import models
 # Create your views here.
 
@@ -48,8 +51,7 @@ def historico_de_emprestimos(request):
     emprestimos = Emprestimos.objects.all()
     context = {"emprestimos": emprestimos}
     return render(request, 'historico_de_emprestimos.html', context=context)
-
-
+    
 def detalhar_livro(request, id):
     livro = Livro.objects.get(id=id)
     return render(request, 'detalhar_livro.html', {'livro': livro})
@@ -85,9 +87,15 @@ def emprestar_livro(request, id):
     livro.update(quantidade=models.F('quantidade') - 1)
     return redirect('/')
 
+@login_required
 def devolver_livro(request, id):
     emprestimo = get_object_or_404(Emprestimos, pk=id)
     livro = Livro.objects.filter(pk=emprestimo.livro.id)
     livro.update(quantidade =models.F('quantidade') + 1)
     emprestimo.delete()
     return redirect('/historico_de_emprestimos/')
+
+class SingUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/register.html'

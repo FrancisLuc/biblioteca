@@ -19,6 +19,7 @@ from emprestimos.views import home, cadastrar_livro, fazer_emprestimo, listar_li
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('acoounts/', include('emprestimos.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', home, name="home"),
     path('cadastrar_livro/', cadastrar_livro, name="cadastrar_livro"),
