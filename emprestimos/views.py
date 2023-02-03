@@ -48,7 +48,7 @@ def listar_livros(request):
 
 @login_required
 def historico_de_emprestimos(request):
-    emprestimos = Emprestimos.objects.all()
+    emprestimos = Emprestimos.objects.filter(usuario = request.user)
     context = {"emprestimos": emprestimos}
     return render(request, 'historico_de_emprestimos.html', context=context)
     

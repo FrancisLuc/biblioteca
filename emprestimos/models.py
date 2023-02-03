@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 import uuid
 
 # Create your models here.
@@ -16,9 +17,11 @@ class Livro(models.Model):
 
 class Emprestimos(models.Model):
     codigo = models.UUIDField('Codigo', default=uuid.uuid4, editable=False)
-    usuario = models.CharField('Usuario', max_length=50)
+    usuario = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     data_de_emprestimo = models.DateField(auto_now_add=True)
-    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
-
+    livro = models.ForeignKey(Livro, on_delete = models.DO_NOTHING)
+    
     def __str__(self):
-        return str(self.codigo)
+        return str(self.livro)
+    
+    
